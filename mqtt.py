@@ -13,8 +13,10 @@ def on_message_dispense_now(client, userdata, msg):
     data = json.loads(msg.payload.decode())
     print(data)
     slot = data['slot']
+    iterations = data['number']
     print(slot)
-    pill_serial.activate_slot(str(slot))
+    for _ in range(0, iterations):
+        pill_serial.activate_slot(str(slot))
 
 mqttc = paho.Client()
 mqttc.on_connect = on_connect
