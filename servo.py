@@ -1,7 +1,7 @@
 import pigpio
 import time
 
-SERVO_PIN = 18pin
+SERVO_PIN = 18
 
 pi = pigpio.pi() # Servo Init
 
