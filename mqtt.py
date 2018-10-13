@@ -12,9 +12,9 @@ def on_message(client, userdata, msg):
 def on_message_dispense_now(client, userdata, msg):
     data = json.loads(msg.payload.decode())
     print(data)
-    slot = int(data['slot'])
+    slot = data['slot']
     print(slot)
-    pill_serial.activate_slot(slot)
+    pill_serial.activate_slot(str(slot))
 
 mqttc = paho.Client()
 mqttc.on_connect = on_connect
