@@ -1,4 +1,4 @@
-import serial
+from serial import serial
 
 def activate_slot(slot_num):
     ser.write(str(slot_num))
