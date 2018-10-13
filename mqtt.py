@@ -36,4 +36,4 @@ mqttc.message_callback_add('dispense/now', on_message_dispense_now)
 
 mqttc.subscribe("dispense/#")
 
-mqttc.loop_start() # moved to __init__.py
+mqttc.loop_forever() 
