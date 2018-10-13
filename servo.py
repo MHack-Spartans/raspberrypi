@@ -1,7 +1,7 @@
 import pigpio
 import time
 
-SERVO_PIN = 18
+SERVO_PIN = 18pin
 
 pi = pigpio.pi() # Servo Init
 
@@ -11,6 +11,8 @@ def servo_set_angle(angle):
 
 while True:
     servo_set_angle(0)
+    print(0)
     time.sleep(2)
     servo_set_angle(90)
+    print(90)
     time.sleep(2)
