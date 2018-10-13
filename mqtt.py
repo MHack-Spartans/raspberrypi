@@ -2,6 +2,7 @@ import paho.mqtt.client as paho
 import ssl
 import json
 import pill_serial
+import time
 
 def on_connect(client, userdata, flags, rc):
     print("Connection returned result:", rc)
@@ -17,6 +18,7 @@ def on_message_dispense_now(client, userdata, msg):
     print(slot)
     for _ in range(0, iterations):
         pill_serial.activate_slot(str(slot))
+        time.sleep(1)
 
 mqttc = paho.Client()
 mqttc.on_connect = on_connect
