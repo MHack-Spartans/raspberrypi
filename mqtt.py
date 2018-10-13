@@ -12,7 +12,7 @@ def on_message(client, userdata, msg):
 def on_message_dispense_now(client, userdata, msg):
     data = json.loads(msg.payload.decode())
     print(data)
-    slot = data['slot']
+    slot = int(data['slot'])
     print(slot)
     pill_serial.activate_slot(slot)
 
