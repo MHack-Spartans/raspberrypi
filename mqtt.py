@@ -1,6 +1,6 @@
 import paho.mqtt.client as paho
 import json
-from . import serial
+from . import pill_serial
 
 def on_connect(client, userdata, flags, rc):
     print("Connection returned result:", rc)
