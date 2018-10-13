@@ -1,4 +1,5 @@
 import paho.mqtt.client as paho
+import ssl
 import json
 import pill_serial
 
