@@ -1,0 +1,16 @@
+[Unit]
+Description=Pill Buddy System
+After=network-online.target
+
+[Service]
+WorkingDirectory=/home/pi/raspberrypi/
+User=pi
+ExecStart=/home/pi/raspberrypi/start.sh
+StandardOutput=syslog
+StandardError=syslog
+Restart=on-failure
+RestartSec=42s
+
+[Install]
+WantedBy=multi-user.target
+Alias=pill.service
