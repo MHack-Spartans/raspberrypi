@@ -13,6 +13,9 @@ BluePin = 13
 GPIO.setup(RedPin, GPIO.OUT)
 GPIO.setup(GreenPin, GPIO.OUT)
 GPIO.setup(BluePin, GPIO.OUT)
+GPIO.output(RedPin, GPIO.LOW)
+GPIO.output(GreenPin, GPIO.LOW)
+GPIO.output(BluePin, GPIO.LOW)
 
 slot_to_pin = {
     1 : RedPin,
