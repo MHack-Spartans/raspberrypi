@@ -42,7 +42,7 @@ mqttc.tls_set(caPath, certfile=certPath, keyfile=keyPath, cert_reqs=ssl.CERT_REQ
 mqttc.connect(awshost, awsport, keepalive=60)
 
 mqttc.message_callback_add('dispense/now', on_message_dispense_now)
-mqttc.message_callback_add('buzzer', on_message_buzzer)
+mqttc.message_callback_add('dispense/buzzer', on_message_buzzer)
 
 mqttc.subscribe("dispense/#")
 
