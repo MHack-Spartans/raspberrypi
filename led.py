@@ -13,3 +13,5 @@ GPIO.setup(BluePin, GPIO.OUT)
 GPIO.output(RedPin, GPIO.LOW)
 GPIO.output(GreenPin, GPIO.HIGH)
 GPIO.output(BluePin, GPIO.HIGH)
+
+time.sleep(100)
