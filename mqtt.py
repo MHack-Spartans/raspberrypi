@@ -4,6 +4,22 @@ import json
 import pill_serial
 import time
 import buzzer
+import RPi.GPIO as GPIO
+
+RedPin = 22
+GreenPin = 23
+BluePin = 27
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(RedPin, GPIO.OUT)
+GPIO.setup(GreenPin, GPIO.OUT)
+GPIO.setup(BluePin, GPIO.OUT)
+
+slot_to_pin = {
+    1 : RedPin,
+    2 : BluePin,
+    3 : GreenPin,
+}
 
 def on_connect(client, userdata, flags, rc):
     print("Connection returned result:", rc)
@@ -17,9 +33,12 @@ def on_message_dispense_now(client, userdata, msg):
     slot = data['slot']
     iterations = data['number']
     print(slot)
+    pin = slot_to_pin[slot]
+    GPIO.output(pin, GPIO.HIGH)
     for _ in range(0, iterations):
         pill_serial.activate_slot(str(slot))
         time.sleep(5)
+    GPIO.output(pin, GPIO.LOW)
 
 def on_message_buzzer(client, userdata, msg):
     print("Running buzzer")
