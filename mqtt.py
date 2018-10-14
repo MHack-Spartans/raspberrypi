@@ -6,11 +6,10 @@ import time
 import buzzer
 import RPi.GPIO as GPIO
 
-RedPin = 22
-GreenPin = 23
-BluePin = 27
+RedPin = 15
+GreenPin = 16
+BluePin = 13
 
-GPIO.setmode(GPIO.BCM)
 GPIO.setup(RedPin, GPIO.OUT)
 GPIO.setup(GreenPin, GPIO.OUT)
 GPIO.setup(BluePin, GPIO.OUT)
