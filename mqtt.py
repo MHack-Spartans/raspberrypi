@@ -18,7 +18,7 @@ def on_message_dispense_now(client, userdata, msg):
     print(slot)
     for _ in range(0, iterations):
         pill_serial.activate_slot(str(slot))
-        time.sleep(2)
+        time.sleep(5)
 
 mqttc = paho.Client()
 mqttc.on_connect = on_connect
