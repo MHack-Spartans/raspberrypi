@@ -3,6 +3,7 @@ import ssl
 import json
 import pill_serial
 import time
+import buzzer
 
 def on_connect(client, userdata, flags, rc):
     print("Connection returned result:", rc)
@@ -19,6 +20,10 @@ def on_message_dispense_now(client, userdata, msg):
     for _ in range(0, iterations):
         pill_serial.activate_slot(str(slot))
         time.sleep(5)
+
+def on_message_buzzer(client, userdata, msg):
+    print("Running buzzer")
+    buzzer.buzz()
 
 mqttc = paho.Client()
 mqttc.on_connect = on_connect
@@ -37,6 +42,7 @@ mqttc.tls_set(caPath, certfile=certPath, keyfile=keyPath, cert_reqs=ssl.CERT_REQ
 mqttc.connect(awshost, awsport, keepalive=60)
 
 mqttc.message_callback_add('dispense/now', on_message_dispense_now)
+mqttc.message_callback_add('buzzer', on_message_buzzer)
 
 mqttc.subscribe("dispense/#")
 
