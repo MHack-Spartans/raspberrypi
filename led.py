@@ -5,7 +5,7 @@ RedPin = 22
 GreenPin = 23
 BluePin = 27
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(RedPin, GPIO.OUT)
 GPIO.setup(GreenPin, GPIO.OUT)
 GPIO.setup(BluePin, GPIO.OUT)
