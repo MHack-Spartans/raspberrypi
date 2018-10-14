@@ -11,6 +11,5 @@ GPIO.setup(GreenPin, GPIO.OUT)
 GPIO.setup(BluePin, GPIO.OUT)
 
 GPIO.output(RedPin, GPIO.HIGH)
-GPIO.output(Green
-Pin, GPIO.HIGH)
+GPIO.output(GreenPin, GPIO.HIGH)
 GPIO.output(BluePin, GPIO.HIGH)
